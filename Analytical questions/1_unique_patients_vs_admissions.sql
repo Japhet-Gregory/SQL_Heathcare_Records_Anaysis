@@ -4,4 +4,6 @@ SELECT
     COUNT(DISTINCT patient_number) AS unique_patients,
     COUNT(*) - COUNT(DISTINCT patient_number) AS readmissions
 FROM discharges
-GROUP BY ward;
+where ward IS NOT NULL
+GROUP BY ward
+order by total_admissions desc;
