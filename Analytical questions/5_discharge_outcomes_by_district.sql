@@ -1,11 +1,10 @@
--- 6_avg_los_by_ward_and_outcome.sql
--- Average length of stay by ward and discharge outcome
+-- 7_admissions_by_day_of_week.sql
+-- Which day of the week is admission most likely to happen?
 
 SELECT
-    ward,
-    COUNT(*) AS "Admissions",
-    ROUND(AVG(days), 1) AS "Avg_LOS_Days"
+    TO_CHAR(date_admitted, 'Day') AS "Day_Of_Week",
+    COUNT(*) AS "Admissions"
 FROM discharges
-WHERE ward IS NOT NULL
-GROUP BY ward
-ORDER BY "Avg_LOS_Days" DESC;
+WHERE date_admitted IS NOT NULL
+GROUP BY TO_CHAR(date_admitted, 'Day'), EXTRACT(DOW FROM date_admitted)
+ORDER BY COUNT(*) DESC;
