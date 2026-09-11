@@ -12,7 +12,6 @@ A SQL-based exploration of hospital discharge records from a facility in Kigoma,
 ## Tools Used
 
 - **SQL** (PostgreSQL-style syntax) for all querying and aggregation, run against a local database connection in VS Code.
-- **Python (matplotlib)** for chart generation.
 - **Excel** for building an initial exploratory version of one chart.
 
 ## The Questions I Answered
